@@ -42,25 +42,26 @@ export default function LandingPage() {
               </CardContent>
             </Card>
           </Link>
-          <Link href="/available-rooms" className="block">
-            <Card className="h-full hover:shadow-xl hover:border-primary transition-all duration-300 transform hover:-translate-y-1">
-              <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-xl font-semibold">רשימת חדרים פנויים</CardTitle>
-                <Building2 className="h-8 w-8 text-primary" />
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  איתור חדרים פנויים לפי יום ושעה.
-                </p>
-              </CardContent>
-            </Card>
-          </Link>
+          <Card className="h-full opacity-50 cursor-not-allowed">
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-xl font-semibold text-muted-foreground">רשימת חדרים פנויים</CardTitle>
+              <Building2 className="h-8 w-8 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                איתור חדרים פנויים לפי יום ושעה.
+              </p>
+              <p className="text-sm text-muted-foreground mt-2 font-medium">
+                לא זמין כרגע
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </main>
       <footer className="container mx-auto px-4 py-2 text-left text-muted-foreground text-sm">
         <div className="flex justify-between items-center">
-          <span>v5.1</span>
-          <span>עדכון נתונים: 15/9/2025</span>
+          <span>v5.0</span>
+          <span>עדכון נתונים: 01/10/25</span>
         </div>
       </footer>
     </div>

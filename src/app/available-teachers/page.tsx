@@ -104,7 +104,6 @@ export default function AvailableTeachersPage() {
                         <div key={`${slot.start}-${slot.end}`} className="text-center bg-background border-l border-b p-2" style={{ gridColumn: index + 2 }}>
                           <div className="flex flex-col items-center">
                             <span className="text-sm">שיעור {index + 1}</span>
-                            <span className="text-[10px] text-muted-foreground whitespace-normal">{slot.start}-{slot.end}</span>
                           </div>
                         </div>
                       ))}

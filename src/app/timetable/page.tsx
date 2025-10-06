@@ -28,7 +28,7 @@ export default function TimetablePage() {
       const gradeA = a.split(' ')[0];
       const gradeB = b.split(' ')[0];
       const hebrewGrades: { [key: string]: number } = {
-        'א': 1, 'ב': 2, 'ג': 3, 'ד': 4, 'ה': 5, 'ו': 6, 'ז': 7, 'ח': 8
+        'ט': 9, 'י': 10, 'יא': 11, 'יב': 12
       };
       const numA = hebrewGrades[gradeA.charAt(0)];
       const numB = hebrewGrades[gradeB.charAt(0)];

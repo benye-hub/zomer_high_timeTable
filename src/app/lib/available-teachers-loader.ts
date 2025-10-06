@@ -7,7 +7,6 @@ import mondayData from './available-teachers/monday.json';
 import tuesdayData from './available-teachers/tuesday.json';
 import wednesdayData from './available-teachers/wednesday.json';
 import thursdayData from './available-teachers/thursday.json';
-import fridayData from './available-teachers/friday.json';
 
 const dayMapping = {
   'ראשון': sundayData,
@@ -15,7 +14,6 @@ const dayMapping = {
   'שלישי': tuesdayData,
   'רביעי': wednesdayData,
   'חמישי': thursdayData,
-  'שישי': fridayData,
 };
 
 const parseSchedule = (data: any[]): TeacherAvailability[] => {
@@ -27,7 +25,7 @@ const parseSchedule = (data: any[]): TeacherAvailability[] => {
 
     // Find the teacher name key (it will be different for each day)
     const teacherKey = Object.keys(row).find(key => 
-      key.includes('מורים פנוים') && row[key] !== 'מורה'
+      (key.includes('מורים פנויים') || key.includes('מורים פנוים')) && row[key] !== 'מורה'
     );
     
     if (!teacherKey) return;
@@ -38,20 +36,29 @@ const parseSchedule = (data: any[]): TeacherAvailability[] => {
     if (!teachers[teacherName]) {
       teachers[teacherName] = {
         teacherName,
-        schedule: Array(8).fill(null), // 8 time slots (Column2-Column9)
+        schedule: Array(10).fill(null), // 10 time slots (Column2-Column11)
       };
     }
 
-    // Parse the schedule (Column2 to Column9)
-    for (let i = 2; i <= 9; i++) {
+    // Parse the schedule (Column2 to Column11)
+    for (let i = 2; i <= 11; i++) {
       const lessonKey = `Column${i}`;
       if (row[lessonKey]) {
         const value = row[lessonKey];
         if (typeof value === 'string') {
-          const parts = value.split(',').map((s: string) => s.trim());
-          const subject = parts[0] || '';
-          const className = parts.slice(1).join(', ').trim();
-          teachers[teacherName].schedule[i - 2] = { subject, class: className };
+          const trimmedValue = value.trim();
+          if (trimmedValue && trimmedValue !== '---' && trimmedValue !== ' ---') {
+            // If the value contains a comma, split it as "subject, class"
+            if (trimmedValue.includes(',')) {
+              const parts = trimmedValue.split(',').map((s: string) => s.trim());
+              const subject = parts[0] || '';
+              const className = parts.slice(1).join(', ').trim();
+              teachers[teacherName].schedule[i - 2] = { subject, class: className };
+            } else {
+              // If it's just a class name, treat it as the class
+              teachers[teacherName].schedule[i - 2] = { subject: 'שיעור', class: trimmedValue };
+            }
+          }
         }
       }
     }
@@ -71,16 +78,18 @@ export const availableTeachersData: DailySchedule = Object.keys(dayMapping).redu
   return acc;
 }, {});
 
-export const days = ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי'];
+export const days = ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי'];
 export const timeSlots = [
-  { start: '08:00', end: '08:55' },
-  { start: '08:55', end: '09:45' },
-  { start: '10:15', end: '11:00' },
-  { start: '11:05', end: '11:50' },
-  { start: '12:05', end: '12:50' },
-  { start: '13:15', end: '14:00' },
-  { start: '14:00', end: '14:45' },
-  { start: '14:45', end: '15:30' },
+  { start: '1', end: '1' },
+  { start: '2', end: '2' },
+  { start: '3', end: '3' },
+  { start: '4', end: '4' },
+  { start: '5', end: '5' },
+  { start: '6', end: '6' },
+  { start: '7', end: '7' },
+  { start: '8', end: '8' },
+  { start: '9', end: '9' },
+  { start: '10', end: '10' },
 ];
 
     

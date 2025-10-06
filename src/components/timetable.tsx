@@ -156,7 +156,7 @@ const Timetable: FC<TimetableProps> = ({ classes }) => {
         
         {displayTimeSlots.map((time, timeIndex) => (
           <div key={time.start} className="contents">
-            <div className="sticky right-0 z-20 p-1 border-b border-l bg-card h-28 flex items-center justify-center text-[10px] font-mono text-muted-foreground">{`${time.start}-${time.end}`}</div>
+            <div className="sticky right-0 z-20 p-1 border-b border-l bg-card h-28 flex items-center justify-center text-[10px] font-mono text-muted-foreground">{time.start}</div>
 
             {days.map((day, dayIndex) => {
               const cellData = grid[timeIndex]?.[dayIndex];

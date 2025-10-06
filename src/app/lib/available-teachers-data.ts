@@ -851,7 +851,7 @@ const rawDataByDay: { [key: string]: any[] } = {
 
 const mainKey = "מערכת שעות שחף - יסודי זומר רמת גן";
 
-export const days = ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי'];
+export const days = ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי'];
 
 export const timeSlots = [
   { start: '08:00', end: '08:55' },

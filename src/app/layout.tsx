@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import InstallHint from "@/components/install-hint";
 
 export const metadata: Metadata = {
-  title: "מערכת שעות זומר",
+  title: "מערכת שעות תיכון זומר",
   description: "ניווט קל במערכת השעות שלך.",
 };
 
@@ -19,7 +19,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="manifest" href="/manifest-v5.json" />
-        <meta name="apple-mobile-web-app-title" content="מערכת זומר" />
+        <meta name="apple-mobile-web-app-title" content="מערכת תיכון זומר" />
         <link rel="apple-touch-icon" href="/logo.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />

@@ -19,7 +19,7 @@ import {
 import { Button } from '@/components/ui/button';
 
 export default function TimetablePage() {
-  const [selectedClass, setSelectedClass] = useState<string>('א1');
+  const [selectedClass, setSelectedClass] = useState<string>('ט1');
 
   const classes = useMemo(() => {
     const allClasses = timetableData.map(item => item.class);
@@ -55,7 +55,7 @@ export default function TimetablePage() {
                 <HomeIcon className="h-6 w-6" />
               </Button>
             </Link>
-            <h1 className="text-2xl font-bold tracking-tight">מערכת שעות זומר תשפ"ו</h1>
+            <h1 className="text-2xl font-bold tracking-tight">מערכת שעות תיכון זומר תשפ"ו</h1>
           </div>
         </div>
       </header>
